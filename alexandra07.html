@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/interval" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/kotra" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/mockind-easter" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #BEA386;
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+        .navbar-light {
+            background-color: rgb(158, 100, 45);
+        }
+        .navbar-brand, .navbar-nav .dropdown-toggle {
+            color: rgb(255, 255, 255) !important; 
+        }
+        .navbar-nav .dropdown-menu {
+            background-color: rgb(158, 100, 45); 
+            border: none;
+            padding: 0;
+        }
+        .navbar-nav .dropdown-menu li a {
+            color: rgb(255, 255, 255) !important;
+            padding: 10px 15px;
+            display: block;
+        }
+        .navbar-nav .dropdown-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            padding: 20px;
+            flex-grow: 1; 
+            flex-wrap: wrap; 
+        }
+
+        .pokemon-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 40px;
+            flex-shrink: 0; 
+        }
+
+        .breloom-img {
+            width: 360px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .search-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px; 
+            position: relative; 
+        }
+
+        .placeholder {
+            width: 180px; 
+            height: 45px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: darkolivegreen;
+            color: white; 
+            text-align: center;
+            padding: 5px 10px;
+            border: 2px solid chocolate;
+            box-sizing: border-box; 
+        }
+        .placeholder::placeholder { 
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .poke-button {
+            width: 50px;
+            height: 50px;
+            background-color: #2ee71d;
+            border-color: chocolate;
+            border-radius: 50%; 
+            border: 3px solid chocolate;
+            cursor: pointer;
+            margin-top: 15px; 
+        }
+        .poke-button:hover {
+            background-color: #24b514; 
+        }
+
+        .pokemon-info-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            margin-left: 50px; 
+            background-color: rgba(255, 255, 255, 0.85); 
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative; 
+            min-width: 300px; 
+        }
+
+        .pokeImg {
+            width: 200px; 
+            height: 200px;
+            position: absolute;
+            top: -80px;
+            right: 20px; 
+            mix-blend-mode: multiply;
+            border-radius: 10px; 
+            object-fit: contain; /
+        }
+
+        .pokeInfo {
+            font-family: 'Kotra', sans-serif; 
+            font-size: 1.1em;
+            color: #4B0082;
+            margin-bottom: 8px;
+            line-height: 1.4; 
+        }
+        .pokeInfo:last-child {
+            margin-bottom: 0;
+        }
+
+        .grafica {
+            width: 550px; 
+            height: 350px; 
+            margin-top: 40px; 
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0; 
+        }
+
+        
+        @media (max-width: 991px) {
+            .main-content {
+                flex-direction: column; 
+                align-items: center; 
+            }
+            .pokemon-display, .pokemon-info-container {
+                margin: 0 0 30px 0; 
+            }
+            .pokemon-info-container {
+                width: 90%; 
+                max-width: 450px;
+            }
+            .pokeImg {
+                position: static; 
+                margin-top: 20px;
+            }
+            .grafica {
+                width: 90%;
+                max-width: 500px;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 767px) { 
+            .navbar-brand {
+                font-size: 1.2em; 
+            }
+            .navbar-nav .dropdown-toggle {
+                font-size: 1.1em;
+            }
+            .breloom-img {
+                width: 90%; 
+                max-width: 300px;
+            }
+            .placeholder {
+                width: 150px;
+                font-size: 18px;
+            }
+            .pokemon-info-container {
+                padding: 15px;
+            }
+            .pokeInfo {
+                font-size: 1em;
+            }
+            .grafica {
+                height: 300px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-light" style="background-color: rgb(158, 100, 45);">
+    <div class="container">
+        <a class="navbar-brand" href="index.html" style="color: rgb(255, 255, 255);">INICIO</a> 
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false" aria-controls="navbarNavDropdown">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown"> 
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="unidad1.html" id="navbarDropdownMenuLinkUnit1" data-toggle="dropdown" aria-haspopup="true" 
+                    aria-expanded="false" style="color: rgb(255, 255, 255);">UNIDAD 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUnit1">
+                        <li><a class="dropdown-item" href="akagari01.php">practica 1</a></li>
+                        <li><a class="dropdown-item" href="akagari02.php">practica 2</a></li>
+                        <li><a class="dropdown-item" href="akagari03.php">practica 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="unidad2.html" id="navbarDropdownMenuLinkUnit2" data-toggle="dropdown" aria-haspopup="true" 
+                    aria-expanded="false" style="color: rgb(255, 255, 255);">UNIDAD 2 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUnit2">
+                        <li><a class="dropdown-item" href="akagari04.html">practica 4</a></li>
+                        <li><a class="dropdown-item" href="Alexandra05a.html">practica 5</a></li>
+                        <li><a class="dropdown-item" href="akagari06.php">practica 6</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="unidad3.html" id="navbarDropdownMenuLinkUnit3" data-toggle="dropdown" 
+                    aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">UNIDAD 3 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUnit3">
+                        <li><a class="dropdown-item" href="alexandra07.html">practica 7</a></li>
+                        <li><a class="dropdown-item" href="alexandra08.html">practica 8</a></li>
+                        <li><a class="dropdown-item" href="alexandra09.html">practica 9</a></li>
+                        <li><a class="dropdown-item" href="proyectofinal.html">practica Final</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <div class="pokemon-display">
+        <img src="breloom.jpg" class="breloom-img">
+        <div class="search-area">
+            <input type="text" placeholder="Ingresa un Pokémon" id="pokeName" class="placeholder">
+            <button onclick="fetchPokemon()" class="poke-button"></button>
+        </div>
+    </div>
+
+    <div class="pokemon-info-container">
+        <img src="pokebola.png" alt="pokebola" id="pokeImg" class="pokeImg">
+        
+        <div id="pokename" class="pokeInfo">Nombre:</div>
+        <div id="pokeHe" class="pokeInfo">Altura:</div>
+        <div id="pokeWe" class="pokeInfo">Peso:</div>
+        <div id="poketype" class="pokeInfo">Tipo:</div>
+        <div id="pokeitem" class="pokeInfo">Habilidad:</div>
+        <div id="pokemove1" class="pokeInfo">Movimiento 1:</div>
+        <div id="pokemove2" class="pokeInfo">Movimiento 2:</div>
+        <div id="pokemove3" class="pokeInfo">Movimiento 3:</div>
+        <div id="pokemove4" class="pokeInfo">Movimiento 4:</div>
+        <div id="pokeorder" class="pokeInfo">Orden:</div>
+        <div id="pokeid" class="pokeInfo">ID:</div>
+    </div>
+
+    <div class="grafica">
+        <canvas id="miCanvas"></canvas>
+    </div>
+</div>
+
+<script>
+    const pokeImage = (url) => {
+        const pokePhoto = document.getElementById("pokeImg");
+        pokePhoto.src = url;
+    }
+
+    const fetchPokemon = () => {
+        const pokeNameInput = document.getElementById("pokeName");
+        let pokeName = pokeNameInput.value.toLowerCase(); 
+
+       
+        document.getElementById('pokename').innerHTML = `Nombre:`;
+        document.getElementById('pokeHe').innerHTML = `Altura:`;
+        document.getElementById('pokeWe').innerHTML = `Peso:`;
+        document.getElementById('poketype').innerHTML = `Tipo:`;
+        document.getElementById('pokeitem').innerHTML = `Habilidad:`;
+        document.getElementById('pokemove1').innerHTML = `Movimiento 1:`;
+        document.getElementById('pokemove2').innerHTML = `Movimiento 2:`;
+        document.getElementById('pokemove3').innerHTML = `Movimiento 3:`;
+        document.getElementById('pokemove4').innerHTML = `Movimiento 4:`;
+        document.getElementById('pokeorder').innerHTML = `Orden:`;
+        document.getElementById('pokeid').innerHTML = `ID:`;
+        pokeImage("pokebola.png"); 
+
+        const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
+        fetch(url)
+            .then((res) => {
+                if (res.status !== 200) {
+                    console.log("Pokémon no encontrado. Código de estado:", res.status);
+                    alert("Pokémon no encontrado. Intenta con otro nombre.");
+                    return null; 
+                }
+                return res.json();
+            })
+            .then((data) => {
+                if (data) {
+                    console.log(data);
+                    pokeImage(data.sprites.front_default);
+
+                    document.getElementById('pokename').innerHTML = `Nombre: ${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`; 
+                    document.getElementById('pokeHe').innerHTML = `Altura: ${(data.height / 10).toFixed(1)} m`; 
+                    document.getElementById('pokeWe').innerHTML = `Peso: ${(data.weight / 10).toFixed(1)} kg`;
+                    document.getElementById('poketype').innerHTML = `Tipo: ${data.types.map(typeInfo => typeInfo.type.name.charAt(0).toUpperCase() + typeInfo.type.name.slice(1)).join(', ')}`;
+                    document.getElementById('pokeitem').innerHTML = `Habilidad: ${data.abilities.map(abilityInfo => abilityInfo.ability.name.charAt(0).toUpperCase() + abilityInfo.ability.name.slice(1)).join(', ')}`;
+                    
+                    
+                    document.getElementById('pokemove1').innerHTML = `Movimiento 1: ${data.moves[0] ? (data.moves[0].move.name.charAt(0).toUpperCase() + data.moves[0].move.name.slice(1)).replace(/-/g, ' ') : 'N/A'}`;
+                    document.getElementById('pokemove2').innerHTML = `Movimiento 2: ${data.moves[1] ? (data.moves[1].move.name.charAt(0).toUpperCase() + data.moves[1].move.name.slice(1)).replace(/-/g, ' ') : 'N/A'}`;
+                    document.getElementById('pokemove3').innerHTML = `Movimiento 3: ${data.moves[2] ? (data.moves[2].move.name.charAt(0).toUpperCase() + data.moves[2].move.name.slice(1)).replace(/-/g, ' ') : 'N/A'}`;
+                    document.getElementById('pokemove4').innerHTML = `Movimiento 4: ${data.moves[3] ? (data.moves[3].move.name.charAt(0).toUpperCase() + data.moves[3].move.name.slice(1)).replace(/-/g, ' ') : 'N/A'}`;
+                    
+                    document.getElementById('pokeorder').innerHTML = `Orden: #${data.order}`;
+                    document.getElementById('pokeid').innerHTML = `ID: #${data.id}`;
+
+                    const miCanvas = document.getElementById("miCanvas").getContext("2d");
+                    if (window.miCanva !== undefined) {
+                        window.miCanva.destroy();
+                    }
+                    window.miCanva = new Chart(miCanvas, {
+                        type: "bar",
+                        data: {
+                            labels: ["HP", "Ataque", "Defensa", "At. Especial", "Def. Especial", "Velocidad"],
+                            datasets: [
+                                {
+                                    label: `${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`, 
+                                    backgroundColor: 'rgba(154,62,35,0.7)', 
+                                    data: [
+                                        data.stats[0].base_stat,
+                                        data.stats[1].base_stat,
+                                        data.stats[2].base_stat,
+                                        data.stats[3].base_stat,
+                                        data.stats[4].base_stat,
+                                        data.stats[5].base_stat
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)', 
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.5)', 
+                                        'rgba(54, 162, 235, 0.5)',
+                                        'rgba(255, 206, 86, 0.5)',
+                                        'rgba(75, 192, 192, 0.5)',
+                                        'rgba(153, 102, 255, 0.5)',
+                                        'rgba(255, 159, 64, 0.5)'
+                                    ], 
+                                    borderWidth: 1,
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        color: 'purple',
+                                        font: { size: 12 }
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        maxRotation: 45, 
+                                        minRotation: 0,
+                                        color: 'purple',
+                                        font: { size: 15 },
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        color: 'purple'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            })
+            .catch((err) => {
+                console.error("Error al obtener datos del Pokémon:", err);
+                alert("Hubo un error al buscar el Pokémon. Por favor, intenta de nuevo.");
+            });
+    }      
+</script>
+</body>
+</html>

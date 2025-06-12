@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/interval" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/kotra" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/mockind-easter" rel="stylesheet">
+
+    <title>DragonBallZ</title>
+</head>
+<body>
+<nav>
+<nav class="navbar navbar-light" style="background-color: rgb(255, 51, 119);">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" style="color: rgb(255, 255, 255);">INICIO</a>   
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown"> 
+        <ul class="nav navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="unidad1.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
+            aria-expanded="false" style="color: rgb(255, 255, 255);;">UNIDAD 1</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
+              <a class="dropdown-item" href="akagari01.php">practica 1</a><br>
+              <a class="dropdown-item" href="akagari02.php">practica 2</a><br>
+              <a class="dropdown-item" href="akagari03.php">practica 3</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="unidad1.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
+            aria-expanded="false" style="color: rgb(255, 255, 255);;">UNIDAD 2</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
+              <a class="dropdown-item" href="akagari04.html">practica 4</a><br>
+              <a class="dropdown-item" href="Alexandra05a.html">practica 5</a><br>
+              <a class="dropdown-item" href="akagari06.php">practica 6</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="unidad1.html" id="navbarDropdownMenuLink" data-toggle="dropdown" 
+            aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);;">UNIDAD 3</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
+              <a class="dropdown-item" href="alexandra07.html">practica 7</a><br>
+              <a class="dropdown-item" href="alexandra08.html">practica 8</a><br>
+              <a class="dropdown-item" href="alexandra09.html">practica 9</a><br>
+              <a class="dropdown-item" href="proyectofinal.html">practica Final</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+    </div>
+    </nav>
+
+</nav>
+
+
+<style>
+    :root {
+        --color-primario: #90FCF9;
+        --color-secundario: #DA344D;
+        --color-terceario: #191516;
+        --color-cuartorio: #FF9B42;
+        --color-quinto: #F1C787;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: var(--color-primario);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin: 0;
+    }
+    header {
+        padding: 15px;
+        display: flex;
+        justify-content: flex-end;
+        background-color: var(--color-secundario);
+    }
+    .search {
+        background-color: var(--color-primario);
+        border: 2px solid var(--color-terceario);
+        border-radius: 50px;
+        font-size: 15px;
+        padding: 8px 15px;
+        color: var(--color-terceario);
+    }
+    .search::placeholder {
+        color: var(--color-terceario)
+    }
+    .search:focus {
+        outline: none;
+        background-color: var(--color-quinto);
+    }
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .personaje {
+        width: 400px;
+        margin: 15px;
+        background-color: var(--color-secundario);
+        box-shadow: 10px 15px 1px var(--color-cuartorio);
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .personaje img {
+        width: 80%;
+        height: 400px;
+        object-fit: contain;
+    }
+    .personaje-info {
+        color: var(--color-terceario);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 15px;
+        letter-spacing: 5px;
+    }
+    .personaje-info h3 {
+        margin: 0;
+        color: var(--color-terceario);
+    }
+    .personaje-info h1 {
+        margin: 0;
+        color: var(--color-primario);
+    }
+    .descripcion {
+        background-color: var(--color-quinto);
+        padding: 15px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        max-height: 100%;
+        transform: translateY(101%);
+        overflow-y: auto;
+        transition: transform 0.3s ease-in;
+    }
+    .personaje:hover .descripcion {
+        transform: translateY(0);
+    }
+</style>
+
+<header>
+    <form id="form">
+        <img src="Logo.jpg" alt="logo" style="width: 100px;">
+        <input type="text" id="search" class="search" placeholder="Buscar personaje">
+    </form>
+</header>
+<main id="main"></main> 
+
+<script>
+    const API_URL = 'https://dragonball-api.com/api/characters';
+    const main = document.getElementById('main');
+    const form = document.getElementById('form');
+    const search = document.getElementById('search');
+
+    let allCharacters = [];
+
+    async function getCharacters() {
+        try {
+            const res = await fetch(API_URL);
+            const data = await res.json();
+            allCharacters = data.items || data;
+            showCharacters(allCharacters);
+        } catch (error) {
+            console.error('Error al obtener los personajes:', error);
+        }
+    }
+
+    function showCharacters(characters) {
+        main.innerHTML = '';
+        characters.forEach((char) => {
+            const { id, name, image, ki, maxKi, description, race } = char;
+            const charElement = document.createElement('div');
+            charElement.classList.add('personaje');
+            charElement.innerHTML = `
+                <img src="${image}" alt="${name}">
+                <div class="personaje-info">
+                    <h1>${id}</h1><h3>${name}</h3>
+                </div>
+                <div class="descripcion">
+                    <h3>Raza:</h3> ${race}
+                    <p><strong>Ki:</strong> ${ki}</p>
+                    <p><strong>Max Ki:</strong> ${maxKi}</p>
+                    <p><strong>Descripción:</strong> ${description || 'Sin descripción disponible'}</p>
+                </div>
+            `;
+            main.appendChild(charElement);
+        });
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const searchTerm = search.value.toLowerCase();
+        if (searchTerm && searchTerm !== '') {
+            const filtered = allCharacters.filter(char =>
+                char.name.toLowerCase().includes(searchTerm)
+            );
+            showCharacters(filtered);
+            search.value = '';
+        } else {
+            showCharacters(allCharacters);
+        }
+    });
+
+    // Cargar personajes al inicio
+    getCharacters();
+</script>
+
+</body>
+</html>
