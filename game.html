@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de la Garra | Mi Proyecto Web</title>
+    <link rel="stylesheet" href="neocities.css">
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    
+    <div class="sidebar-drawer-container">
+        <div class="park-map sidebar-content">
+            <h3 class="map-title">Park Map</h3>
+            <nav>
+                <a href="home.html" class="map-item">🏠 Home</a>
+                <a href="game.html" class="map-item active">🕹️ Game</a>
+                <a href="recipes.html" class="map-item">🍰 Recipes</a>
+                <a href="twice.html" class="map-item">🎤 TWICE</a>
+               
+            </nav>
+        </div>
+        <button id="logoutBtn" class="logout-btn drawer-logout">Cerrar Sesión</button>
+    </div>
+    
+    <div id="sidebar-toggle" class="sidebar-toggle">☰</div>
+
+    <div class="main-container full-width-content">
+        
+        <div class="center-column expanded-game">
+            <main class="content">
+                <div class="game-header">
+                    <h2>UFO Catcher: Juego de Peluches ✨</h2>
+                </div>
+                
+                <div class="claw-machine-container">
+                    <div class="claw-machine">
+                        <div class="claw-area">
+                            <div class="claw-rope-style-track">
+                                <div id="claw-rope" class="claw-rope"></div> 
+                                <img id="claw-image" src="images/claw-closed.png" alt="Garra de máquina" class="claw-image">
+                            </div>
+                        </div>
+                        <div class="toy-area"></div>
+                        <div class="prize-box-container">
+                            <span class="prize-label">PREMIO</span>
+                            <div class="prize-box"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-controls-panel custom-panel">
+                        
+                        <div class="display-stats-area">
+                            <div id="time-display" class="time-display-box">30</div> 
+                            <div class="plays-area-container">
+                                <div class="plays-box">
+                                    <span class="display-label">JUGADAS</span>
+                                    <span id="plays-display" class="display-value">0</span>
+                                </div>
+                                <button id="coin-button" class="coin-insert-btn">
+                                    <span class="coin-display">1</span>
+                                    <span class="coin-text">JUGAR</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="controls-action-area">
+                            <div class="controls-dpad-area custom-dpad">
+                                <button id="up-button" class="move-btn d-pad-btn">▲</button>
+                                <div class="horizontal-controls">
+                                    <button id="left-button" class="move-btn d-pad-btn">◄</button>
+                                    <button id="right-button" class="move-btn d-pad-btn">►</button>
+                                </div>
+                                <button id="down-button" class="move-btn d-pad-btn">▼</button>
+                            </div>
+                            
+                            <button id="grab-button" class="grab-btn large-grab-btn action-button">
+                                <span class="grab-text">SOLTAR</span>
+                            </button>
+                        </div>
+                        
+                        <div class="score-refill-area">
+                            <div class="score-area">
+                                <p id="score-display">Peluches: 0</p>
+                            </div>
+                            <button id="refill-plush-button" class="refill-btn">Rellenar Peluches</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="right-column">
+            <div class="filler-box"><img src="images/kaname madoka.jpeg" alt="Imagen de relleno 1"></div>
+            <div class="filler-box"><img src="images/imagen5.jpeg" alt="Imagen de relleno 2"></div>
+            <div class="filler-box"><img src="images/imagen3.jpeg" alt="Imagen de relleno 3"></div>
+        </div>
+    </div>
+    <script src="home.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+/*
+ * Archivo: recipes.css
+ * Descripción: Estilos específicos para la página de postres.
+ */
+
+/* Estilos para ocultar y mostrar elementos */
+.hidden {
+    display: none;
+}
+
+/* Estilos para el menú de selección de postres */
+.dessert-selection {
+    text-align: center;
+    padding: 20px;
+}
+
+.dessert-selection h2 {
+    color: #ff7aa5;
+    font-size: 2.2rem;
+    font-family: cursive, sans-serif;
+    margin-bottom: 20px;
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.dessert-button {
+    background-color: #ffdce9;
+    border: 2px solid #ff91b8;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #4b2c36;
+    font-weight: bold;
+}
+
+.dessert-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dessert-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.add-recipe-button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #a8d6f0;
+    border: 2px solid #5a7b8e;
+    border-radius: 20px;
+    color: #4b2c36;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.add-recipe-button:hover {
+    background-color: #8ed0f8;
+}
+
+.plus-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Estilos del formulario para agregar receta */
+#recipe-form-container {
+    padding: 20px;
+    background-color: #fff0f5;
+    border: 2px solid #ff91b8;
+    border-radius: 15px;
+}
+
+.recipe-form h3 {
+    text-align: center;
+    color: #ff7aa5;
+    font-family: cursive, sans-serif;
+}
+
+.recipe-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.recipe-form input, .recipe-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ffc2d3;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.submit-button, .cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button {
+    background-color: #ff7aa5;
+    color: white;
+}
+
+.submit-button:hover {
+    background-color: #ff5e8c;
+}
+
+.cancel-button {
+    background-color: #e0e0e0;
+    color: #4b2c36;
+    margin-left: 10px;
+}
+
+/* Estilos para las recetas de usuario */
+#user-recipes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-recipe-box {
+    background-color: #ffffff;
+    border: 2px solid #ffc2d3;
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.user-recipe-box h3 {
+    color: #ff7aa5;
+    font-size: 1.8rem;
+    margin-top: 0;
+    border-bottom: 2px dashed #ff91b8;
+    padding-bottom: 5px;
+}
+
+.user-recipe-box p {
+    white-space: pre-wrap;
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff7aa5;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #ff5e8c;
+}
+
+/* Estilos del contenedor de la receta predeterminada */
+.dessert-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.recipe-box {
+    background-color: #ffffff;
+    border: 2px solid #ffc2d3;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    padding-top: 150px;
+}

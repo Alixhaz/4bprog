@@ -1,0 +1,88 @@
+/*
+ * Archivo: twice.css
+ * Descripción: Estilos específicos para la página de TWICE.
+ */
+
+.twice-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.twice-header h2 {
+    color: #ff7aa5;
+    font-size: 2.5rem;
+    font-family: cursive, sans-serif;
+}
+
+.twice-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.member-button {
+    background-color: #ffdce9;
+    border: 2px solid #ff91b8;
+    border-radius: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #4b2c36;
+    transition: all 0.2s ease;
+}
+
+.member-button:hover {
+    background-color: #ff91b8;
+    color: white;
+}
+
+/* Estilos para el contenedor de información */
+.member-info {
+    background-color: #fff0f5;
+    border: 2px solid #ff91b8;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.member-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px dashed #ff91b8;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid #ff91b8;
+}
+
+.member-details {
+    flex-grow: 1;
+}
+
+.member-details h3 {
+    color: #ff7aa5;
+    font-size: 2rem;
+    margin: 0 0 10px;
+}
+
+.member-details p {
+    margin: 5px 0;
+}
+
+.member-bio h4 {
+    color: #4b2c36;
+    margin-top: 0;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TWICE | Mi Proyecto Web</title>
+    <link rel="stylesheet" href="neocities.css">
+    <link rel="stylesheet" href="twice.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="sidebar-column">
+            <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+            <div class="park-map">
+                <h3 class="map-title">Park Map</h3>
+                <nav>
+                    <a href="home.html" class="map-item">🏠 Home</a>
+                    <a href="game.html" class="map-item">🕹️ Game</a>
+                    <a href="recipes.html" class="map-item">🍰 Recipes</a>
+                    <a href="twice.html" class="map-item active">🎤 TWICE</a>
+                   
+                </nav>
+            </div>
+        </div>
+
+        <div class="center-column">
+            <main class="content">
+                <div class="twice-header">
+                    <h2>Conoce a TWICE</h2>
+                    <p>Selecciona una integrante para ver su perfil.</p>
+                </div>
+                
+                <div class="twice-buttons-container">
+                    <button class="member-button" data-member="nayeon">Nayeon</button>
+                    <button class="member-button" data-member="jeongyeon">Jeongyeon</button>
+                    <button class="member-button" data-member="momo">Momo</button>
+                    <button class="member-button" data-member="sana">Sana</button>
+                    <button class="member-button" data-member="jihyo">Jihyo</button>
+                    <button class="member-button" data-member="mina">Mina</button>
+                    <button class="member-button" data-member="dahyun">Dahyun</button>
+                    <button class="member-button" data-member="chaeyoung">Chaeyoung</button>
+                    <button class="member-button" data-member="tzuyu">Tzuyu</button>
+                </div>
+
+                <div id="member-info" class="member-info hidden">
+                    <div class="member-profile">
+                        <img id="member-photo" src="" alt="Foto de integrante de TWICE" class="member-photo">
+                        
+                        <div class="member-details">
+                            <h3 id="member-name"></h3>
+                            <p><strong>Lugar de nacimiento:</strong> <span id="member-birthplace"></span></p>
+                            <p><strong>Fecha de nacimiento:</strong> <span id="member-birthday"></span></p>
+                            <p><strong>Se unió al grupo:</strong> <span id="member-join-date"></span></p>
+                            <p><strong>Posición en el grupo:</strong> <span id="member-position"></span></p>
+                        </div>
+                    </div>
+                    <div class="member-bio">
+                        <h4>Biografía:</h4>
+                        <p id="member-biography"></p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="right-column">
+            <div class="filler-box">
+                <img src="images/kaname madoka.jpeg" alt="Imagen de relleno 1">
+            </div>
+            <div class="filler-box">
+                <img src="images/imagen5.jpeg" alt="Imagen de relleno 2">
+            </div>
+            <div class="filler-box">
+                <img src="images/imagen3.jpeg" alt="Imagen de relleno 3">
+            </div>
+        </div>
+    </div>
+    <script src="home.js"></script>
+    <script src="twice.js"></script>
+</body>
+</html>

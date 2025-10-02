@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas | Mi Proyecto Web</title>
+    <link rel="stylesheet" href="neocities.css">
+    <link rel="stylesheet" href="recipes.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="sidebar-column">
+            <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+            <div class="park-map">
+                <h3 class="map-title">Park Map</h3>
+                <nav>
+                    <a href="home.html" class="map-item">🏠 Home</a>
+                    <a href="game.html" class="map-item">🕹️ Game</a>
+                    <a href="recipes.html" class="map-item active">🍰 Recipes</a>
+                    <a href="twice.html" class="map-item">🎤 TWICE</a>
+                    
+                </nav>
+            </div>
+        </div>
+
+        <div class="center-column">
+            <main class="content">
+                <div class="dessert-selection" id="dessert-selection-menu">
+                    <h2>¡Selecciona un postre!</h2>
+                    <div class="selection-grid">
+                        <button class="dessert-button" data-dessert="karlota">
+                            <img src="images/karlota.jpeg" alt="Karlota" class="dessert-icon">
+                            <span>Karlota</span>
+                        </button>
+                        <button class="dessert-button" data-dessert="pay_de_queso">
+                            <img src="images/pay.jpeg" alt="Pay de Queso" class="dessert-icon">
+                            <span>Pay de Queso</span>
+                        </button>
+                        <button class="dessert-button" data-dessert="flan">
+                            <img src="images/flananimado.jpeg" alt="Flan" class="dessert-icon">
+                            <span>Flan</span>
+                        </button>
+                        <button class="dessert-button" data-dessert="tarta_de_chocolate">
+                            <img src="images/tarta.jpeg" alt="Tarta de Chocolate" class="dessert-icon">
+                            <span>Tarta de Chocolate</span>
+                        </button>
+                        <button class="dessert-button" data-dessert="pastafrola">
+                            <img src="images/pastafrola.jpeg" alt="Pastafrola" class="dessert-icon">
+                            <span>Pastafrola</span>
+                        </button>
+                    </div>
+                    <button id="add-recipe-btn" class="add-recipe-button">
+                        <span class="plus-icon">＋</span> Añadir Receta
+                    </button>
+                </div>
+
+                <div id="recipe-form-container" class="hidden">
+                    <form id="recipe-form" class="recipe-form">
+                        <h3>Agregar una Nueva Receta</h3>
+                        <label for="recipe-title">Título:</label>
+                        <input type="text" id="recipe-title" required>
+                        
+                        <label for="recipe-ingredients">Ingredientes:</label>
+                        <textarea id="recipe-ingredients" rows="5" required></textarea>
+                        
+                        <label for="recipe-instructions">Preparación:</label>
+                        <textarea id="recipe-instructions" rows="8" required></textarea>
+                        
+                        <button type="submit" class="submit-button">Guardar Receta</button>
+                        <button type="button" id="cancel-form-btn" class="cancel-button">Cancelar</button>
+                    </form>
+                </div>
+
+                <div id="recipe-display-container">
+                    </div>
+            </main>
+        </div>
+
+        <div class="right-column">
+            <div class="filler-box">
+                <img src="images/kaname madoka.jpeg" alt="Imagen de relleno 1">
+            </div>
+            <div class="filler-box">
+                <img src="images/imagen5.jpeg" alt="Imagen de relleno 2">
+            </div>
+            <div class="filler-box">
+                <img src="images/imagen3.jpeg" alt="Imagen de relleno 3">
+            </div>
+        </div>
+    </div>
+    <script src="home.js"></script>
+    <script src="recipes.js"></script>
+</body>
+</html>

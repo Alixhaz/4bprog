@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Registro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="form-box login">
+            <h2>Inicio de Sesión</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fa fa-envelope icon"></i>
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa fa-lock icon"></i>
+                    <input type="password" name="password" id="loginPassword" placeholder="Contraseña" required>
+                    <span class="password-toggle" onclick="togglePasswordVisibility('loginPassword', 'loginIcon')">
+                        <i class="fa fa-eye-slash" id="loginIcon"></i>
+                    </span>
+                </div>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <p>¿No tienes cuenta? <a href="#" id="showRegister">Regístrate aquí</a></p>
+        </div>
+
+        <div class="form-box register">
+            <h2>Registro</h2>
+            <form id="registerForm">
+                <div class="input-group">
+                    <i class="fa fa-envelope icon"></i>
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa fa-lock icon"></i>
+                    <input type="password" name="password" id="registerPassword" placeholder="Contraseña" required>
+                    <span class="password-toggle" onclick="togglePasswordVisibility('registerPassword', 'registerIcon')">
+                        <i class="fa fa-eye-slash" id="registerIcon"></i>
+                    </span>
+                </div>
+                <button type="submit">Registrarse</button>
+            </form>
+            <p>¿Ya tienes cuenta? <a href="#" id="showLogin">Inicia sesión</a></p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+    <script>
+        function togglePasswordVisibility(passwordId, iconId) {
+            const passwordInput = document.getElementById(passwordId);
+            const toggleIcon = document.getElementById(iconId);
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+</body>
+</html>
